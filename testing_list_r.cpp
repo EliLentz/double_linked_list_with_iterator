@@ -56,12 +56,12 @@ void Test(LeafStruct::CDualLinkedList<LeafTest::Data> lst) {
 	int i = tst.TestScroll(lst);
 	cout << i << endl;
 	
-	//delete ** and display quanity of elements(4)
+	//delete from begin and display quanity of elements(4)
 	tst.TestErase(lst);
 	i = tst.TestSize(lst);
 	cout << i << endl;
 	
-	//delete ** and display quanity of elements(3)
+	//delete from and display quanity of elements(3)
 	tst.TestEraseAndNext(lst);
 	i = tst.TestScroll(lst);
 	cout << i << endl << endl;
