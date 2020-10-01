@@ -1,7 +1,7 @@
 ﻿#ifndef TEMPLATES_LIST_2020_08_06
 #define TEMPLATES_LIST_2020_08_06
 
-namespace LeafStruct // TODO поменять на свое название
+namespace LeafStruct
 {
 
 
@@ -97,11 +97,11 @@ namespace LeafStruct // TODO поменять на свое название
             }
 
         private:
-            //храним голову списка, если мы находимся перед началом
+            // keep head of leaf, then before first element
             leaf* m_pBegin;
-            // храним текущее положение
+            // keep current element
             leaf* m_pCurrent;
-            //храним конец списка, если мы находимся после конца
+            // keep tail of leaf, then after last element
             leaf* m_pEnd;
         };
 
@@ -178,7 +178,7 @@ namespace LeafStruct // TODO поменять на свое название
 
           }
 
-          // изменяет состояние итератора. выставляет предыдущую позицию.
+          // changes iterator and gives him previous point
           void erase(CIterator& it)
           {
               if (m_pBegin == nullptr) {
@@ -207,7 +207,7 @@ namespace LeafStruct // TODO поменять на свое название
               }
           }
 
-          // изменяет состояние итератора. выставляет следующую позицию.
+          // changes iterator and gives him next point
           void eraseAndNext(CIterator& it)
           {
               if (m_pBegin == nullptr) {
@@ -274,7 +274,7 @@ namespace LeafStruct // TODO поменять на свое название
               return CIterator(m_pEnd);
           }
     private:
-        //храним первый и последний эл. списка
+        //keep first and last elements of leaf
         leaf* m_pBegin, *m_pEnd;
     };
 };
