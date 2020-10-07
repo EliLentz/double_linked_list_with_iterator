@@ -73,6 +73,76 @@ namespace LeafTest {
 			LeafStruct::CDualLinkedList<Data>::CIterator it = lst.begin();
 			lst.eraseAndNext(it);
 		}
+		
+		void CustomTest(LeafStruct::CDualLinkedList<Data>& lst) {
+			for (LeafStruct::CDualLinkedList<Data>::CIterator it = lst.begin(); it.isValid(); ++it)
+			{
+				it.getLeaf();
+				Data ts = *it;
+				lst.erase(it);
+			}
+
+			_ASSERT(lst.getSize() == 0);
+
+			for (int i = 0; i < 100; ++i)
+			{
+				Data ts;
+				lst.pushFront(ts);
+			}
+
+			_ASSERT(lst.getSize() == 100);
+
+			int current_count = 100;
+			int ik = 1;
+			for (LeafStruct::CDualLinkedList<Data>::CIterator it = lst.end(); it.isValid(); --it, ++ik)
+			{
+				Data ts = *it;
+				if (ik % 3 == 0)
+				{
+					lst.erase(it); // remove every third element
+					--current_count;
+					_ASSERT(lst.getSize() == current_count);
+				}
+			}
+
+			_ASSERT(lst.getSize() == current_count);
+
+			//
+			//
+
+			for (LeafStruct::CDualLinkedList<Data>::CIterator it = lst.begin(); it.isValid(); ++it)
+			{
+				it.getLeaf();
+				Data ts = *it;
+				lst.erase(it);
+			}
+
+			_ASSERT(lst.getSize() == 0);
+
+			for (int i = 0; i < 100; ++i)
+			{
+				Data ts;
+				lst.pushFront(ts);
+			}
+
+			_ASSERT(lst.getSize() == 100);
+
+			current_count = 100;
+			ik = 1;
+			for (LeafStruct::CDualLinkedList<Data>::CIterator it = lst.begin(); it.isValid(); --it, ++ik)
+			{
+				Data ts = *it;
+				if (ik % 3 == 0)
+				{
+					lst.eraseAndNext(it); // remove every third element
+					--current_count;
+					_ASSERT(lst.getSize() == current_count);
+				}
+			}
+
+			_ASSERT(lst.getSize() == current_count);
+
+		}
 
 	};
 }
