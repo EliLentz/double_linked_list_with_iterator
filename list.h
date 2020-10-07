@@ -184,6 +184,12 @@ namespace LeafStruct
               if (m_pBegin == nullptr) {
                   return;
               }
+              
+              if (m_pBegin == m_pEnd) {
+                  m_pBegin = nullptr;
+                  m_pEnd = nullptr;
+                  return;
+              }
 
               if (it.getLeaf() != m_pBegin) {
                   leaf* cur = m_pBegin;
@@ -211,6 +217,12 @@ namespace LeafStruct
           void eraseAndNext(CIterator& it)
           {
               if (m_pBegin == nullptr) {
+                  return;
+              }
+              
+              if (m_pBegin == m_pEnd) {
+                  m_pBegin = nullptr;
+                  m_pEnd = nullptr;
                   return;
               }
 
