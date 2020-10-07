@@ -69,6 +69,9 @@ void Test(LeafStruct::CDualLinkedList<LeafTest::Data> lst) {
 	//display current element
 	data = tst.TestData(lst);
 	cout << data.num << "	" << data.str << endl << endl;
+	
+	//CustomTest. See at the title "test"
+	tst.CustomTest(lst);
 }
 
 int main()
